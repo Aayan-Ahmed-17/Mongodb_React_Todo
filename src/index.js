@@ -6,7 +6,8 @@ const port = 3000;
 app.use('/api/v1' , todoRoutes)
 
 app.get("/", (req, res) => {
-  console.log("slkdjfl");
+  res.send("Home")
+  console.log("Home");
 });
 
 app.listen(port, () => {

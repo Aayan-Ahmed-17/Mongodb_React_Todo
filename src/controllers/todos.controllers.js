@@ -1,14 +1,17 @@
 import mongoose from "mongoose";
 
-function add() {
+function add(req, res) {
+  res.send("add")
   console.log("add");
 }
 
-function edit() {
+function edit(req, res) {
+  res.send("edit");
   console.log("edit");
 }
 
-function remove() {
+function remove(req, res) {
+  res.send("delete");
   console.log("delete");
 }
 
