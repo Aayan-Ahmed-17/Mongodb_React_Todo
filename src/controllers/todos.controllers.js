@@ -39,14 +39,43 @@ const getAllTodo = async (req, res) => {
   }
 };
 
-function edit(req, res) {
-  res.send("edit");
-  console.log("edit");
-}
+// const editTodo = async (req, res) => {
+//     const { id } = req.params;
 
-function remove(req, res) {
-  res.send("delete");
-  console.log("delete");
-}
+//     if (!mongoose.Types.ObjectId.isValid(id)) {
+//         return res.json({ error: "Not a valid Id" });
+//     }
 
-export { addTodo, getAllTodo, remove, edit };
+//     try {
+//         const todo = await Todos.findOneAndUpdate(
+//             { _id: id },
+//             {
+//                 ...req.body,
+//             },
+//             {new: true}
+//         );
+
+//         if (!todo) {
+//             return res.status(404).json({ error: "Todo not found!" });
+//         }
+
+//         res.json(todo);
+//     } catch (error) {
+//         res.status(500).json({
+//             message: 'internal server error'
+//         })
+//     }
+
+// }
+
+
+const delTodo = async (req, res) => {
+  const { id } = req.params;
+  const del = await Todos.findOneAndDelete({ _id: id });
+  res.json({
+    message: "todo deleted",
+    deleteTodo: del,
+  });
+};
+
+export { addTodo, getAllTodo, delTodo };
