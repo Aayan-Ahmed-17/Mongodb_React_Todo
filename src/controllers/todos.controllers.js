@@ -71,7 +71,7 @@ const getAllTodo = async (req, res) => {
 const editTodo = async (req, res) => {
   const { id } = req.params;
 
-  const edit = await Todos.findOneAndUpdate(
+  const edit = await Todos.findByIdAndUpdate(
     { _id: id },
     {
       ...req.body,
@@ -94,4 +94,13 @@ const delTodo = async (req, res) => {
   });
 };
 
-export { addTodo, getAllTodo, delTodo , editTodo};
+const getSingleTodo = async (req, res) => {
+  const { id } = req.params;
+  const singleTodo = await Todos.findById({ _id: id });
+  res.json({
+    message: "todo found",
+    data: singleTodo
+})
+};
+
+export { addTodo, getAllTodo, delTodo, editTodo , getSingleTodo};
