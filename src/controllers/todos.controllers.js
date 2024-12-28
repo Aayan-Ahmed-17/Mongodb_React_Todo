@@ -68,6 +68,22 @@ const getAllTodo = async (req, res) => {
 
 // }
 
+const editTodo = async (req, res) => {
+  const { id } = req.params;
+
+  const edit = await Todos.findOneAndUpdate(
+    { _id: id },
+    {
+      ...req.body,
+    },
+    { new: true }
+  );
+
+  res.json({
+    message: "todo updated",
+    editTodo: edit,
+  });
+};
 
 const delTodo = async (req, res) => {
   const { id } = req.params;
@@ -78,4 +94,4 @@ const delTodo = async (req, res) => {
   });
 };
 
-export { addTodo, getAllTodo, delTodo };
+export { addTodo, getAllTodo, delTodo , editTodo};
