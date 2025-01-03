@@ -39,35 +39,6 @@ const getAllTodo = async (req, res) => {
   }
 };
 
-// const editTodo = async (req, res) => {
-//     const { id } = req.params;
-
-//     if (!mongoose.Types.ObjectId.isValid(id)) {
-//         return res.json({ error: "Not a valid Id" });
-//     }
-
-//     try {
-//         const todo = await Todos.findOneAndUpdate(
-//             { _id: id },
-//             {
-//                 ...req.body,
-//             },
-//             {new: true}
-//         );
-
-//         if (!todo) {
-//             return res.status(404).json({ error: "Todo not found!" });
-//         }
-
-//         res.json(todo);
-//     } catch (error) {
-//         res.status(500).json({
-//             message: 'internal server error'
-//         })
-//     }
-
-// }
-
 const editTodo = async (req, res) => {
   const { id } = req.params;
 
