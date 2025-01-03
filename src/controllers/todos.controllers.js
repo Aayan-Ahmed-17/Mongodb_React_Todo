@@ -9,6 +9,11 @@ const addTodo = async (req, res) => {
       message: "title or description is required",
     });
 
+
+    // mongodb+srv://aayanahmedtejani:3X77iGNQRA4IITdU@cluster0.fx7qr.mongodb.net/
+    //mongodb+srv://aayanahmedtejani:3X77iGNQRA4IITdU@cluster0.fx7qr.mongodb.net/todo
+
+
   try {
     const todo = await Todos.create({
       title,
